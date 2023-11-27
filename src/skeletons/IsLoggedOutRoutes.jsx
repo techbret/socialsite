@@ -4,11 +4,9 @@ import { Suspense } from "react";
 import Login from "./pages/Login";
 import NavBar from "./components/NavBar";
 import ForgotPassword from "./pages/ForgotPassword";
-import Dashboard from "./pages/Dashboard";
-import EditProfile from "./pages/EditProfile";
 
 function App() {
-  const isLoggedOut = false;
+  const isLoggedOut = true;
   return (
     <div>
       {isLoggedOut ? (
@@ -22,13 +20,7 @@ function App() {
           </Routes>
         </Suspense>
       ) : (
-        <Suspense fallback={<div>Loading</div>}>
-          <Routes>
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/edit-profile" element={<EditProfile />} />
-            <Route path="/*" element={<Dashboard />} />
-          </Routes>
-        </Suspense>
+        <div>Logged In</div>
       )}
     </div>
   );
